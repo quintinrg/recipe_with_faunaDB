@@ -1,4 +1,18 @@
 import React from "react";
+import Header from "./Header.js";
+
+let rec_list = ['recipe', 'recipe', 'recipe'] //Placeholder for actual data
+
+const styles = {
+  recipeList: {
+    color:"darkgreen",
+    margin:"2em"
+  },
+  recipe: {
+    margin:"1em"
+  },
+}
+
 
 function App() {
   return (
@@ -9,42 +23,24 @@ function App() {
   );
 }
 
-function Header(){
-  return(
-    <div>
-    <Brand/>
-    <Nav/>
-    </div>
-  )
-}
 
-function Nav(){
-  return(
-    <nav>
-      <a href="#">Link</a>
-    </nav>
-  )
-}
-function Brand(){
-  return(
-    <h1>Crappy Brand</h1>
-  )
-}
-
-const searchStyles = {
-  fontWeight: 'bold'
-}
 function Search(){
   return(
-    <ul style={searchStyles}>
+    <ul>
       <Recipe />
     </ul>
   )
 }
 function Recipe(){
   return(
-    <li>"Some Relevant Data"</li>
+    <ul style={styles.recipeList}>
+      {rec_list.map(recipe => (
+        <li style={styles.recipe}>{recipe}</li>
+      ))}
+    </ul>
   )
 }
 
 export default App;
+
+
