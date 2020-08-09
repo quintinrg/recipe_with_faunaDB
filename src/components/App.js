@@ -1,7 +1,11 @@
 import React from "react";
 import Header from "./Header.js";
 
-let rec_list = ['recipe0', 'recipe1', 'recipe2', 'recipe3', 'recipe4'] //Placeholder for actual data
+let rec_list = [
+  { id: 'recipe1', name: 'Hot Dogs', difficulty: 'easy', ingredients: ['meat', 'more meat', 'water'], meals: ['lunch', 'dinner'], image: "link_to_image" }, 
+  { id: 'recipe2', name: 'Roast Duck', difficulty: 'tough', ingredients: ['meat', 'more meat', 'water'], meals: ['lunch', 'dinner'] }, 
+  { id: 'recipe3', name: 'Water', difficulty: 'easy', ingredients: ['water'], meals: ['lunch', 'dinner']}
+] //Placeholder for actual data
 
 const styles = {
   recipeList: {
@@ -12,7 +16,8 @@ const styles = {
     margin:"1em"
   },
   searchBar: {
-    backgroundColor: 'lightgrey'
+    backgroundColor: 'lightgrey',
+    margin: '1em'
   }
 }
 
@@ -29,22 +34,25 @@ function App() {
 
 function Search(){
   return(
-    <div>>
-        <input style={styles.searchBar}/>
+    <div>
+        <input style={styles.searchBar} placeholder="  Search"/>
+        <button><p style={{ transform: "rotate(45deg)", margin: 0}}>O--</p></button>
       <ul>
-        <Recipe />
+        <RecipeList />
       </ul>
     </div>
   )
 }
-function Recipe(){
+function RecipeList(){
   return(
     <ul style={styles.recipeList}>
-      {rec_list.map(recipe => (
-        <li style={styles.recipe}>{recipe}</li>
-      ))}
+      {rec_list.map(recipe => (<Recipe key={recipe.id} recipe={recipe}/>))}
     </ul>
   )
+}
+
+function Recipe (props){  
+return (<li style={styles.recipe}><header>{props.recipe.name}</header><img src={props.recipe.image}/><p>Ingredients: {props.recipe.ingredients.join(', ')}</p><p>difficulty: {props.recipe.difficulty}</p></li>)
 }
 
 export default App;
