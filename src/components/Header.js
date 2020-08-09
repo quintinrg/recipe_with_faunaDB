@@ -1,6 +1,5 @@
 import React from "react";
 
-let rec_list = ['recipe', 'recipe', 'recipe']
 
 const styles = {
     header: {
@@ -42,7 +41,7 @@ return(
 
 function Brand(){
 return(
-    <h1 style = {styles.brand}>Crappy Recipes</h1>
+    <h1 style = {styles.brand}>Useless Recipes</h1>
 )
 }
 
