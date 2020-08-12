@@ -2,11 +2,11 @@ import React from "react";
 import Header from "./Header.js";
 
 let rec_list = [
-  { id: 'recipe1', name: 'Hot Dogs', difficulty: 'easy', ingredients: ['meat', 'more meat', 'water'], meals: ['lunch', 'dinner'], image: "/images/hotDog.jpg" }, 
+  { id: 'recipe1', name: 'Hot Dogs', difficulty: 'easy', ingredients: ['meat', 'more meat', 'water'], meals: ['lunch', 'dinner'], image: "/images/hotdog.png" }, 
   { id: 'recipe2', name: 'Roast Duck', difficulty: 'hard', ingredients: ['duck', 'herbs', 'vegetables'], meals: ['dinner'], image: "/images/roastduck.png" }, 
   { id: 'recipe3', name: 'Water', difficulty: 'none', ingredients: ['water'], meals: ['always'], image: "/images/water.png"},
-  { id: 'recipe4', name: 'Elixer Of Life', difficulty: 'easy (if still sober)', ingredients: ['chilled glass'], meals: ['any time'], image: "/images/water.png"},
-  { id: 'recipe5', name: 'Cake', difficulty: 'easy', ingredients: ['water', 'flour', 'eggs', 'sugar'], meals: ['lunch', 'dinner'], image: "/images/cake.jpg"},
+  { id: 'recipe4', name: 'Elixer Of Life', difficulty: 'easy (if still sober)', ingredients: ['chilled glass'], meals: ['any time'], image: "/images/drink2.png"},
+  { id: 'recipe5', name: 'Cake', difficulty: 'easy', ingredients: ['water', 'flour', 'eggs', 'sugar'], meals: ['lunch', 'dinner'], image: "/images/cake.png"},
   { id: 'recipe6', name: 'Strawberry Dessert', difficulty: 'hard', ingredients: ['strawberries', 'flour', 'eggs', 'sugar', 'cream'], meals: ['dessert'], image: "/images/strawberrydessert.png"},
   { id: 'recipe7', name: 'Burger', difficulty: 'medium', ingredients: ['meat', 'buns', 'condiments'], meals: ['lunch', 'dinner'], image: "/images/burger.png"}
 ] //Placeholder for actual data
@@ -81,7 +81,7 @@ function RecipeList(props){
 
 function Recipe (props){  
 return (<li style={styles.recipe}>
-  <header style={{ gridArea: 'header'}}>{props.recipe.name}</header>
+  <header style={styles.title} style={{ gridArea: 'header'}}>{props.recipe.name}</header>
   <img src={props.recipe.image} style={{ gridArea: 'icon' }} style={styles.image}/>
   <p style={{ gridArea: 'ingredients'}}>Ingredients: {props.recipe.ingredients.join(', ')}</p>
   <p style={{gridArea: 'difficulty'}}>difficulty: {props.recipe.difficulty}</p>
