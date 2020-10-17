@@ -8,17 +8,18 @@ const styles = {
 
     brand: {
       flex:"1",
-      color: 'maroon'
+      padding: "15px",
+      color: 'beige',
     },
 
     link: {
     //   flex:"1",
       color: "green",
-      fontSize: "2em",
+      // fontSize: "2em",
     },
 
     navbar: {
-    //   flex:"1",
+      padding: "40px"
     }
   } 
   
@@ -34,7 +35,7 @@ return(
 function Nav(){
 return(    
     <nav style = {styles.navbar}>
-    <a href="#" style = {styles.link}>Menu</a>
+    <a href="#" style = {styles.link}>Create Recipe</a>
     </nav>        
 )
 }
