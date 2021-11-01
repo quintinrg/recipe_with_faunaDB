@@ -5,10 +5,18 @@ import "./index.css";
 import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 
+// const client = createClient({
+//   url: 'https://api.8base.com/cke6fmwrw000208ii3jhkg7n5', 
+//   fetchOptions: () => ({ headers: { authorization: `Bearer 27ec12bf-0e82-4548-9e40-dafcfb2bc5be`}})
+// });
+
+
 const client = createClient({
-  url: 'https://api.8base.com/cke6fmwrw000208ii3jhkg7n5', 
-  fetchOptions: () => ({ headers: { authorization: `Bearer 27ec12bf-0e82-4548-9e40-dafcfb2bc5be`}})
+  url: 'https:/graphql.fauna.com/graphql', 
+  fetchOptions: () => ({ headers: { authorization: `Bearer fnAD5qpqKKACAw_sMkmG210LqL6UV7yCBXJyEm1w`}})
 });
+
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider value={client}>

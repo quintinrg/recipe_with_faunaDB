@@ -1,0 +1,29 @@
+enum Difficulty {
+    easy
+    medium
+    hard
+}
+
+type Recipe {
+    id: ID!
+    name: String!
+    difficulty: Difficulty!
+    ingredients: String!
+    meals: [String]
+    image: String
+    link: String 
+}
+
+input RecipeInput {
+    name: String!
+    difficulty: Difficulty!
+    ingredients: String!
+    meals: [String]
+    image: String
+    link: String 
+}
+
+type Query {
+    searchRecipies: [Recipe]!
+    getRecipe: Recipe!
+}

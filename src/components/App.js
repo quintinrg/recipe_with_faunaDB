@@ -3,21 +3,53 @@ import Header from "./Header.js";
 import { useQuery } from 'urql';
 import './App.css'
 
+
 const RecipeQuery = `
   query{
-    recipesList{
-      items{
+      searchRecipies{
+        data{
         name
-        id
         meals
-        image {
-          id
-          downloadUrl
-        }
+        image
         link
       }
     }
   }`
+
+  // {
+  //   "ref": Ref(Collection("Recipe"), "281049854271029762"),
+  //   "ts": 1604288878080000,
+  //   "data": {
+  //     "name": "Roast Duck",
+  //     "difficulty": "hard",
+  //     "ingredients": [
+  //       "duck",
+  //       "herbs",
+  //       "vegetables"
+  //     ],
+  //     "meals": [
+  //       "dinner"
+  //     ],
+  //     "image": "/images/roastduck.png",
+  //     "link": "https://www.duck.com"
+  //   }
+  // }
+
+// const RecipeQuery = `
+//   query{
+//     recipesList{
+//       items{
+//         name
+//         id
+//         meals
+//         image {
+//           id
+//           downloadUrl
+//         }
+//         link
+//       }
+//     }
+//   }`
 
 let rec_list = [
   { id: 'recipe1', name: 'Hot Dogs', difficulty: 'easy', ingredients: ['meat', 'more meat', 'water'], meals: ['lunch', 'dinner'], image: "/images/hotdog.png", link: "http://www.duck.com" }, 
@@ -53,12 +85,12 @@ function Search(){
   if (error) return <p>Oh crap {error.message}</p>;
 
   console.log("refreshed")
-  console.log(data.recipesList.items)
+  console.log(data.searchRecipies.data)
 
-  let displayList = data.recipesList.items.filter(recipe => cleanTerm(recipe.name).startsWith(cleanTerm(terms)) ) 
+  let displayList = data.searchRecipies.data.filter(recipe => cleanTerm(recipe.name).startsWith(cleanTerm(terms)) ) 
 
   const filterList = () => {
-    displayList = data.recipesList.items.filter(recipe => cleanTerm(recipe.name).startsWith(cleanTerm(terms)) ) 
+    displayList = data.searchRecipies.data.filter(recipe => cleanTerm(recipe.name).startsWith(cleanTerm(terms)) ) 
     // setRecipes(filtered)
   }
 
@@ -83,7 +115,7 @@ function Recipe (props){
 console.log(props.recipe)
 return (<li>
   <a href={props.recipe.link}>{props.recipe.name}</a>
-  <img src={props.recipe.image.downloadUrl}/>
+  <img src={props.recipe.image}/>
   <p className="ingredients">Key Ingredients: {props.recipe.ingredients}</p>
   <p className="difficulty">difficulty: {props.recipe.difficulty}</p>
   <p className="meals">meals: {props.recipe.meals.join(', ')}</p>
